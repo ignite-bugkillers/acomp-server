@@ -1,5 +1,12 @@
-import express from 'express';
+import 'dotenv/config';
+import 'reflect-metadata';
+
 import cors from 'cors';
+import express from 'express';
+
+import { createDatabaseConnection } from '../typeorm';
+
+createDatabaseConnection();
 
 const app = express();
 
@@ -12,4 +19,4 @@ app.get('/', (request, response) => {
   });
 });
 
-app.listen(3333, () => console.log('Server is running!'));
+export { app };
