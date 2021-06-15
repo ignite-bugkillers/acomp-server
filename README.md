@@ -22,9 +22,6 @@ cd server
 # configure as váriaves de ambiente
 cp .env.sample .env
 
-# configure conexão com bando de dados
-cp ormconfig.sample.js ormconfig.js
-
 # instalando as dependências
 yarn
 
