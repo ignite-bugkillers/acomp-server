@@ -1,4 +1,5 @@
 import { InMemoryUsersRepository } from '../../repositories/in-memory/InMemoryUsersRepository';
+import { CreateUserError } from './CreateUserError';
 import { CreateUserUseCase } from './CreateUserUseCase';
 
 let createUserUserCase: CreateUserUseCase;
@@ -41,6 +42,6 @@ describe('CreateUserUserCase', () => {
         email: 'Clay.Torp79@gmail.com',
         password: 'Byg0eOiesTwKPfj',
       })
-    ).rejects.toBeInstanceOf(Error);
+    ).rejects.toEqual(new CreateUserError());
   });
 });
