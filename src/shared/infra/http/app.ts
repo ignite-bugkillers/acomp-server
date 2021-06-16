@@ -7,6 +7,8 @@ import express from 'express';
 import { createDatabaseConnection } from '../typeorm';
 import { routes } from './routes';
 
+import '../../container';
+
 createDatabaseConnection();
 
 const app = express();
