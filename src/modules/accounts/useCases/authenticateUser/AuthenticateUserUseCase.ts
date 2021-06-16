@@ -48,6 +48,13 @@ export class AuthenticateUserUseCase {
       expiresIn,
     });
 
-    return { user, token };
+    return {
+      user: {
+        id: user.id,
+        email: user.email,
+        name: user.name,
+      },
+      token,
+    };
   }
 }
