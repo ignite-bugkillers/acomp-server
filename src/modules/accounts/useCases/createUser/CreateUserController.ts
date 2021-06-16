@@ -14,7 +14,11 @@ export class CreateUserController {
 
     const createUserUseCase = container.resolve(CreateUserUseCase);
 
-    const user = await createUserUseCase.execute({ name, email, password });
+    const user = await createUserUseCase.execute({
+      name,
+      email: email.toLowerCase(),
+      password,
+    });
 
     return response.status(201).json(UserMap.toDTO(user));
   }
