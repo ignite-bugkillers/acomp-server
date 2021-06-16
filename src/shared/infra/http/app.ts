@@ -2,8 +2,10 @@ import 'dotenv/config';
 import 'reflect-metadata';
 
 import cors from 'cors';
-import express from 'express';
+import express, { Request, Response, NextFunction } from 'express';
+import 'express-async-errors';
 
+import { AppError } from '../../errors/AppError';
 import { createDatabaseConnection } from '../typeorm';
 import { routes } from './routes';
 
@@ -22,5 +24,23 @@ app.get('/', (request, response) => {
     message: 'hello word',
   });
 });
+
+app.use(
+  (err: Error, resquest: Request, response: Response, next: NextFunction) => {
+    if (err instanceof AppError) {
+      return response.status(err.statusCode).json({
+        message: err.message,
+        statusCode: err.statusCode,
+      });
+    }
+
+    console.error(err);
+
+    return response.status(500).json({
+      message: 'Internal server error',
+      statusCode: 500,
+    });
+  }
+);
 
 export { app };
