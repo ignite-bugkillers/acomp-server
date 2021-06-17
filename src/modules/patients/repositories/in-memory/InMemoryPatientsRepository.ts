@@ -9,6 +9,10 @@ export class InMemoryPatientsRepository implements IPatientsRepository {
     this.patients = [];
   }
 
+  public async listAll(): Promise<Patient[]> {
+    return this.patients;
+  }
+
   public async findByCpf(cpf: string): Promise<Patient | undefined> {
     return this.patients.find((findPatient) => findPatient.cpf === cpf);
   }
