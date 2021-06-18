@@ -17,6 +17,9 @@ describe('CreatePatientUseCase', () => {
       name: 'Darrin Koch III',
       cpf: '12312312312',
       address: '4526 Mollie Motorway',
+      birth_date: new Date(
+        'Sat Dec 12 2020 08:06:08 GMT-0300 (Brasilia Standard Time)'
+      ),
     });
 
     expect(patient).toMatchObject({
@@ -24,6 +27,9 @@ describe('CreatePatientUseCase', () => {
       name: 'Darrin Koch III',
       cpf: '12312312312',
       address: '4526 Mollie Motorway',
+      birth_date: new Date(
+        'Sat Dec 12 2020 08:06:08 GMT-0300 (Brasilia Standard Time)'
+      ),
       created_at: expect.any(Date),
       updated_at: expect.any(Date),
     });
@@ -34,6 +40,9 @@ describe('CreatePatientUseCase', () => {
       name: 'Darrin Koch III',
       cpf: '12312312312',
       address: '4526 Mollie Motorway',
+      birth_date: new Date(
+        'Wed Apr 07 2021 15:53:20 GMT-0300 (Brasilia Standard Time)'
+      ),
     });
 
     await expect(
@@ -42,6 +51,9 @@ describe('CreatePatientUseCase', () => {
         cpf: '12312312312',
         phone: '7489784292',
         address: '43898 Kattie Club',
+        birth_date: new Date(
+          'Sun Jul 12 2020 06:39:12 GMT-0300 (Brasilia Standard Time)'
+        ),
       })
     ).rejects.toEqual(new CreatePatientError());
   });

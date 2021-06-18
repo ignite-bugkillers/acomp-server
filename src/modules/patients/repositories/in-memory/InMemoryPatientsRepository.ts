@@ -22,6 +22,7 @@ export class InMemoryPatientsRepository implements IPatientsRepository {
     cpf,
     phone,
     address,
+    birth_date,
   }: ICreatePatientDTO): Promise<Patient> {
     const patient = new Patient();
     Object.assign(patient, {
@@ -29,6 +30,7 @@ export class InMemoryPatientsRepository implements IPatientsRepository {
       cpf,
       phone,
       address,
+      birth_date,
       created_at: new Date(),
       updated_at: new Date(),
     });
