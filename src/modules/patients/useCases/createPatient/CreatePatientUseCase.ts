@@ -17,6 +17,7 @@ export class CreatePatientUseCase {
     cpf,
     phone,
     address,
+    birth_date,
   }: ICreatePatientDTO): Promise<Patient> {
     const patientAlreadyExists = await this.patientsRepository.findByCpf(cpf);
 
@@ -29,6 +30,7 @@ export class CreatePatientUseCase {
       cpf,
       phone,
       address,
+      birth_date,
     });
 
     return patient;

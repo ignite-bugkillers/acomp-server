@@ -20,12 +20,14 @@ export class TypeormPatientsRepository implements IPatientsRepository {
     cpf,
     address,
     phone,
+    birth_date,
   }: ICreatePatientDTO): Promise<Patient> {
     const patient = this.repository.create({
       name,
       cpf,
       address,
       phone,
+      birth_date,
     });
 
     return this.repository.save(patient);

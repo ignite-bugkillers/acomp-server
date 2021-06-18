@@ -9,7 +9,8 @@ export class CreatePatientController {
     request: Request,
     response: Response
   ): Promise<Response> {
-    const { name, cpf, address, phone }: ICreatePatientDTO = request.body;
+    const { name, cpf, address, phone, birth_date }: ICreatePatientDTO =
+      request.body;
 
     const createPatientUseCase = container.resolve(CreatePatientUseCase);
 
@@ -18,6 +19,7 @@ export class CreatePatientController {
       cpf,
       address,
       phone,
+      birth_date,
     });
 
     return response.status(201).json(patient);

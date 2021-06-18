@@ -24,6 +24,9 @@ export class Patient {
   @Column()
   public address: string;
 
+  @Column('date')
+  public birth_date: Date;
+
   @CreateDateColumn()
   public created_at: Date;
 

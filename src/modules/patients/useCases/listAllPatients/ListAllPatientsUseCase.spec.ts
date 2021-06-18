@@ -18,6 +18,9 @@ describe('ListAllPatientsUseCase', () => {
       name: 'Darrin Koch III',
       cpf: '12312312312',
       address: '4526 Mollie Motorway',
+      birth_date: new Date(
+        'Thu Jul 30 2020 16:17:40 GMT-0300 (Brasilia Standard Time)'
+      ),
     });
 
     await inMemoryPatientsRepository.create({
@@ -25,6 +28,9 @@ describe('ListAllPatientsUseCase', () => {
       cpf: '32131231212',
       phone: '7489784292',
       address: '43898 Kattie Club',
+      birth_date: new Date(
+        'Sat May 01 2021 21:51:40 GMT-0300 (Brasilia Standard Time)'
+      ),
     });
 
     const response = await listAllPatientsUseCase.execute();
