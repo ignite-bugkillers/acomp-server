@@ -21,6 +21,10 @@ export class TypeormUsersRepository implements IUsersRepository {
     return this.repository.save(user);
   }
 
+  public async findByID(id: string): Promise<User | undefined> {
+    return this.repository.findOne(id);
+  }
+
   public async findByEmail(email: string): Promise<User | undefined> {
     return this.repository.findOne({ where: { email } });
   }
