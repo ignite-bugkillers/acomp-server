@@ -11,6 +11,14 @@ export class TypeormPatientsRepository implements IPatientsRepository {
     this.repository = getRepository(Patient);
   }
 
+  public async findById(id: string): Promise<Patient | undefined> {
+    return this.repository.findOne(id);
+  }
+
+  public async save(patient: Patient): Promise<Patient> {
+    return this.repository.save(patient);
+  }
+
   public async listAll(): Promise<Patient[]> {
     return this.repository.find();
   }
