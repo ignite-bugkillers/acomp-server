@@ -29,7 +29,7 @@ yarn
 docker-compose --env-file .env up -d
 
 # rode as 'migrations'
-yarn typeorm migrations:run
+yarn typeorm migration:run
 
 # execute a aplicação em modo de desenvolvimento
 yarn dev
