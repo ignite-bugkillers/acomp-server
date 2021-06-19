@@ -2,11 +2,8 @@ import { Router } from 'express';
 
 import { ensureAuthenticated } from '../middlewares/ensureAuthenticated';
 import { authenticateRoutes } from './authenticate.routes';
-
 import { doctorRoutes } from './doctors.routes';
-
 import { patientsRoutes } from './patients.routes';
-
 import { usersRoutes } from './users.routes';
 
 const routes = Router();
