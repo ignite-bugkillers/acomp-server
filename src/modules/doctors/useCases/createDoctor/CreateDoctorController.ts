@@ -7,12 +7,12 @@ import { ICreateDoctorDTO } from './ICreateDoctorDTO';
 
 export class CreateDoctorController {
   async handle(request: Request, response: Response): Promise<Response> {
-    const { name, crm }: ICreateDoctorDTO = request.body;
+    const { phone, crm }: ICreateDoctorDTO = request.body;
 
     const createDoctor = container.resolve(CreateDoctorUserCase);
 
     const doctor = await createDoctor.execute({
-      name,
+      phone,
       crm,
       user_id: request.user.id,
     });

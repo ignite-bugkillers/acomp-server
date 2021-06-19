@@ -24,11 +24,11 @@ export class TypeormDoctorRepository implements IDoctorRepository {
   }
 
   public async create({
-    name,
+    phone,
     crm,
     user_id,
   }: ICreateDoctorDTO): Promise<Doctor> {
-    const user = this.repository.create({ name, crm, user_id });
+    const user = this.repository.create({ phone, crm, user_id });
 
     return this.repository.save(user);
   }

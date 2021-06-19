@@ -10,7 +10,7 @@ export class CreateDoctors1623900807360 implements MigrationInterface {
         isPrimary: true,
       },
       {
-        name: 'name',
+        name: 'phone',
         type: 'varchar',
       },
       {

@@ -18,7 +18,7 @@ export class CreateDoctorUserCase {
   ) {}
 
   public async execute({
-    name,
+    phone,
     crm,
     user_id,
   }: ICreateDoctorDTO): Promise<Doctor> {
@@ -35,7 +35,7 @@ export class CreateDoctorUserCase {
     }
 
     const doctor = await this.doctorRepository.create({
-      name,
+      phone,
       crm,
       user_id,
     });
