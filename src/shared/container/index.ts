@@ -9,9 +9,6 @@ import { IDoctorRepository } from '../../modules/doctors/repositories/interfaces
 import { TypeormPatientsRepository } from '../../modules/patients/repositories/implementations/TypeormPatientsRepository';
 import { IPatientsRepository } from '../../modules/patients/repositories/IPatientsRepository';
 
-import { TypeormDoctorRepository } from '../../modules/doctors/repositories/implementations/TypeormDoctorRepository';
-import { IDoctorRepository } from '../../modules/doctors/repositories/interfaces/IDoctorRepository';
-
 container.registerSingleton<IUsersRepository>(
   'TypeormUsersRepository',
   TypeormUsersRepository
