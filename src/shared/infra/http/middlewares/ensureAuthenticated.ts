@@ -28,14 +28,12 @@ export function ensureAuthenticated(
 
     const { sub } = decoded as ITokenPayload;
 
-    console.log('sub', sub);
-
     request.user = {
       id: sub,
     };
 
     return next();
   } catch {
-    throw new Error('Invalid JWT token');
+    throw new AppError('Invalid JWT token');
   }
 }
