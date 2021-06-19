@@ -8,9 +8,8 @@ import { TypeormDoctorRepository } from '../../modules/doctors/repositories/impl
 import { IDoctorRepository } from '../../modules/doctors/repositories/interfaces/IDoctorRepository';
 import { TypeormPatientsRepository } from '../../modules/patients/repositories/implementations/TypeormPatientsRepository';
 import { IPatientsRepository } from '../../modules/patients/repositories/IPatientsRepository';
-
-import { TypeormDoctorRepository } from '../../modules/doctors/repositories/implementations/TypeormDoctorRepository';
-import { IDoctorRepository } from '../../modules/doctors/repositories/interfaces/IDoctorRepository';
+import { TypeormProcedureRepository } from '../../modules/procedures/repositories/implementations/TypeormProcedureRepository';
+import { IProcedureRepository } from '../../modules/procedures/repositories/interfaces/IProcedureRepository';
 
 container.registerSingleton<IUsersRepository>(
   'TypeormUsersRepository',
@@ -25,4 +24,9 @@ container.registerSingleton<IDoctorRepository>(
 container.registerSingleton<IPatientsRepository>(
   'TypeormPatientsRepository',
   TypeormPatientsRepository
+);
+
+container.registerSingleton<IProcedureRepository>(
+  'TypeormProcedureRepository',
+  TypeormProcedureRepository
 );
