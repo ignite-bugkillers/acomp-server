@@ -7,7 +7,8 @@
   "scripts": {
     "dev": "tsnd --inspect --transpile-only --ignore-watch node_modules --respawn src/shared/infra/http/server.ts",
     "typeorm": "tsnd ./node_modules/typeorm/cli.js",
-    "test": "cross-env NODE_ENV=test jest --runInBand --detectOpenHandles --setupFiles dotenv/config"
+    "test": "cross-env NODE_ENV=test jest --runInBand --detectOpenHandles --setupFiles dotenv/config",
+    "start": "ts-node --transpile-only src/shared/infra/http/server.ts"
   },
   "dependencies": {
     "bcrypt": "^5.0.1",
@@ -18,6 +19,7 @@
     "jsonwebtoken": "^8.5.1",
     "pg": "^8.6.0",
     "reflect-metadata": "^0.1.13",
+    "ts-node": "^10.0.0",
     "tsyringe": "^4.5.0",
     "typeorm": "^0.2.34",
     "uuid": "^8.3.2"
