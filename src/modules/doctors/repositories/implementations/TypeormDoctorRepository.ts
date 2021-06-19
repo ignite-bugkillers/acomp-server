@@ -32,4 +32,8 @@ export class TypeormDoctorRepository implements IDoctorRepository {
 
     return this.repository.save(user);
   }
+
+  public async save(doctor: Doctor): Promise<Doctor> {
+    return this.repository.save(doctor);
+  }
 }
