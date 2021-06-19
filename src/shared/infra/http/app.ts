@@ -21,7 +21,7 @@ app.use(routes);
 
 app.get('/', (request, response) => {
   return response.json({
-    message: 'hello word',
+    message: 'hello world!',
   });
 });
 
