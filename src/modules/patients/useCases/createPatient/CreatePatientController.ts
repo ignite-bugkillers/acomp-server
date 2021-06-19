@@ -5,10 +5,7 @@ import { CreatePatientUseCase } from './CreatePatientUseCase';
 import { ICreatePatientDTO } from './ICreatePatientDTO';
 
 export class CreatePatientController {
-  public async handler(
-    request: Request,
-    response: Response
-  ): Promise<Response> {
+  public async handle(request: Request, response: Response): Promise<Response> {
     const { name, cpf, address, phone, birth_date }: ICreatePatientDTO =
       request.body;
 

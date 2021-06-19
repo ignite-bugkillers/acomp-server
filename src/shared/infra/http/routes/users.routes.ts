@@ -6,6 +6,6 @@ const usersRoutes = Router();
 
 const createUserController = new CreateUserController();
 
-usersRoutes.post('/', createUserController.handler);
+usersRoutes.post('/', createUserController.handle);
 
 export { usersRoutes };

@@ -10,8 +10,8 @@ const createPatientController = new CreatePatientController();
 const listAllPatientsController = new ListAllPatientsController();
 const updatePatientController = new UpdatePatientController();
 
-patientsRoutes.get('/', listAllPatientsController.handler);
-patientsRoutes.post('/', createPatientController.handler);
+patientsRoutes.get('/', listAllPatientsController.handle);
+patientsRoutes.post('/', createPatientController.handle);
 patientsRoutes.put('/:id', updatePatientController.handle);
 
 export { patientsRoutes };
