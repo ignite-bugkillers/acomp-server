@@ -1,4 +1,4 @@
-import { getRepository, Repository } from 'typeorm';
+import { getRepository, ILike, Repository } from 'typeorm';
 
 import { Patient } from '../../entities/Patient';
 import { ICreatePatientDTO } from '../../useCases/createPatient/ICreatePatientDTO';
@@ -9,6 +9,12 @@ export class TypeormPatientsRepository implements IPatientsRepository {
 
   constructor() {
     this.repository = getRepository(Patient);
+  }
+
+  public async findByName(name: string): Promise<Patient[]> {
+    return await this.repository.find({
+      where: { name: ILike(`%${name}%`) },
+    });
   }
 
   public async findById(id: string): Promise<Patient | undefined> {

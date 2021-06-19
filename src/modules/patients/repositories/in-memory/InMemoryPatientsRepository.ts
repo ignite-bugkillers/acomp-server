@@ -1,12 +1,18 @@
 import { Patient } from '../../entities/Patient';
 import { ICreatePatientDTO } from '../../useCases/createPatient/ICreatePatientDTO';
-import { IPatientsRepository } from '../IPatientsRepository'
+import { IPatientsRepository } from '../IPatientsRepository';
 
 export class InMemoryPatientsRepository implements IPatientsRepository {
   private patients: Patient[];
 
   constructor() {
     this.patients = [];
+  }
+
+  public async findByName(name: string): Promise<Patient[]> {
+    return this.patients.filter((findPatient) =>
+      findPatient.name.toLowerCase().includes(name.toLowerCase())
+    );
   }
 
   public async findById(id: string): Promise<Patient | undefined> {

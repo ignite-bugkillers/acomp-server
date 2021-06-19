@@ -7,4 +7,5 @@ export interface IPatientsRepository {
   findByCpf(cpf: string): Promise<undefined | Patient>;
   findById(id: string): Promise<undefined | Patient>;
   listAll(): Promise<Patient[]>;
+  findByName(name: string): Promise<Patient[]>;
 }
