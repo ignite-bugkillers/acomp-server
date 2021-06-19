@@ -1,7 +1,6 @@
 import { injectable, inject } from 'tsyringe';
 
 import { IUsersRepository } from '../../../accounts/repositories/IUsersRepository';
-import { CreateUserError } from '../../../accounts/useCases/createUser/CreateUserError';
 import { Doctor } from '../../entities/Doctor';
 import { IDoctorRepository } from '../../repositories/interfaces/IDoctorRepository';
 import { CreateDoctorError } from './CreateDoctorError';
@@ -25,13 +24,13 @@ export class CreateDoctorUserCase {
     const doctorAlreadyExists = await this.doctorRepository.findByCRM(crm);
 
     if (doctorAlreadyExists) {
-      throw new CreateDoctorError();
+      throw new CreateDoctorError.DoctorAlreadyExists();
     }
 
     const userExists = await this.userRepository.findByID(user_id);
 
     if (!userExists) {
-      throw new CreateUserError('User does not exists');
+      throw new CreateDoctorError.UserNotExists();
     }
 
     const doctor = await this.doctorRepository.create({
