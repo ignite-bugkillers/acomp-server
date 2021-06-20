@@ -9,6 +9,12 @@ export class InMemoryMedicalCareRepository implements IMedicalCareRepository {
     this.medicalCareArray = [];
   }
 
+  public async findAllFromPatient(patient_id: string): Promise<MedicalCare[]> {
+    return this.medicalCareArray.filter(
+      (findMedicalCare) => findMedicalCare.patient_id === patient_id
+    );
+  }
+
   public async create({
     doctor_id,
     patient_id,

@@ -11,6 +11,15 @@ export class TypeormMedicalCareRepository implements IMedicalCareRepository {
     this.repository = getRepository(MedicalCare);
   }
 
+  public async findAllFromPatient(patient_id: string): Promise<MedicalCare[]> {
+    return this.repository.find({
+      where: { patient_id },
+      order: {
+        created_at: 'DESC',
+      },
+    });
+  }
+
   public async create({
     doctor_id,
     patient_id,
