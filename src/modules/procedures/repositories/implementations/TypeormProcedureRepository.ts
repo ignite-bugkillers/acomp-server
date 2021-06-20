@@ -11,7 +11,7 @@ export class TypeormProcedureRepository implements IProcedureRepository {
     this.repository = getRepository(Procedure);
   }
 
-  public async findAll(): Promise<Procedure[] | undefined> {
+  public async findAll(): Promise<Procedure[]> {
     return this.repository.find();
   }
 
