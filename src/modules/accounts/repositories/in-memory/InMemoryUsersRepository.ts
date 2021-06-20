@@ -9,6 +9,16 @@ export class InMemoryUsersRepository implements IUsersRepository {
     this.users = [];
   }
 
+  public async save(user: User): Promise<User> {
+    const userIndex = this.users.findIndex(
+      (findUser) => findUser.id === user.id
+    );
+
+    this.users[userIndex] = user;
+
+    return user;
+  }
+
   public async findByID(id: string): Promise<User | undefined> {
     return this.users.find((user) => user.id === id);
   }
