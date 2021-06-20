@@ -17,6 +17,7 @@ export class CreateDoctorUserCase {
   ) {}
 
   public async execute({
+    name,
     phone,
     crm,
     user_id,
@@ -34,6 +35,7 @@ export class CreateDoctorUserCase {
     }
 
     const doctor = await this.doctorRepository.create({
+      name,
       phone,
       crm,
       user_id,

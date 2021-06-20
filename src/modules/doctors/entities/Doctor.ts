@@ -20,6 +20,9 @@ export class Doctor {
   public phone: string;
 
   @Column()
+  public name: string;
+
+  @Column()
   public crm: string;
 
   @Column()

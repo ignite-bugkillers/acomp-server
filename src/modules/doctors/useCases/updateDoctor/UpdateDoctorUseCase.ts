@@ -6,6 +6,7 @@ import { UpdateDoctorError } from './UpdateDoctorError';
 
 interface IRequest {
   id: string;
+  name: string;
   phone: string;
   crm: string;
 }
@@ -17,7 +18,7 @@ export class UpdateDoctorUserCase {
     private doctorRepository: IDoctorRepository
   ) {}
 
-  public async execute({ id, phone, crm }: IRequest): Promise<Doctor> {
+  public async execute({ id, name, phone, crm }: IRequest): Promise<Doctor> {
     const doctorExists = await this.doctorRepository.findByID(id);
 
     if (!doctorExists) {
@@ -26,6 +27,7 @@ export class UpdateDoctorUserCase {
 
     doctorExists.phone = phone;
     doctorExists.crm = crm;
+    doctorExists.name = name;
 
     const doctor = await this.doctorRepository.save(doctorExists);
 
