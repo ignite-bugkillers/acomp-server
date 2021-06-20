@@ -1,8 +1,103 @@
 _type: export
 __export_format: 4
-__export_date: 2021-06-20T12:32:33.661Z
+__export_date: 2021-06-20T17:26:46.062Z
 __export_source: insomnia.desktop.app:v2021.2.2
 resources:
+  - _id: req_2102087ee53342fd94ae7a677556bfd3
+    parentId: fld_3f107f52ec51457a8202631534eff6bd
+    modified: 1624208753950
+    created: 1624208699936
+    url: "{{ _.baseUrl }}/procedures"
+    name: Create Procedure
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"type": "consulta",
+        	"description": "Qui voluptatem et amet autem qui est sunt fugiat."
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_f0ee815e98cb4c1daa6b4925e1544bbd
+    authentication:
+      type: bearer
+      token: "{{ _.token }}"
+    metaSortKey: -1624208699936
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_3f107f52ec51457a8202631534eff6bd
+    parentId: wrk_ddcb46f33f614caba0c87aa3bbe3bd37
+    modified: 1624208688126
+    created: 1624208688126
+    name: Procedures
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1624208688126
+    _type: request_group
+  - _id: wrk_ddcb46f33f614caba0c87aa3bbe3bd37
+    parentId: null
+    modified: 1623800744078
+    created: 1623800744078
+    name: Acomp
+    description: ""
+    scope: collection
+    _type: workspace
+  - _id: req_90296a71788d435984fbbbc53ff1d612
+    parentId: fld_aae2369dacf14c6d9c289dd8e05175d8
+    modified: 1624209282745
+    created: 1624208569644
+    url: "{{ _.baseUrl }}/medical-care"
+    name: Create Medical Care
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"doctor_id": "5d9f4cc5-f5f5-4557-8f08-5e1e0ab00614",
+        	"patient_id": "91e52c02-7b43-43f3-a1b7-e60cff49de6b",
+        	"procedure_id": "15ee263a-d98d-4027-b687-f3cb308c08ea",
+        	"date": "{% now 'iso-8601', '' %}",
+        	"description": "Qui voluptatem et amet autem qui est sunt fugiat."
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_7497c7819785403b82347043f6795c4f
+    authentication:
+      type: bearer
+      token: "{{ _.token }}"
+    metaSortKey: -1624208569644
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_aae2369dacf14c6d9c289dd8e05175d8
+    parentId: wrk_ddcb46f33f614caba0c87aa3bbe3bd37
+    modified: 1624208135880
+    created: 1624208135880
+    name: Medical Care
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1624208135880
+    _type: request_group
   - _id: req_39cca611a02941668af50cb191183666
     parentId: fld_8eacd5dee2424a2cae23663bd1a7df61
     modified: 1624127520768
@@ -48,14 +143,6 @@ resources:
     environmentPropertyOrder: null
     metaSortKey: -1623965900211
     _type: request_group
-  - _id: wrk_ddcb46f33f614caba0c87aa3bbe3bd37
-    parentId: null
-    modified: 1623800744078
-    created: 1623800744078
-    name: Acomp
-    description: ""
-    scope: collection
-    _type: workspace
   - _id: req_21f9b1e1744a4145afb73195eb1480bd
     parentId: fld_8eacd5dee2424a2cae23663bd1a7df61
     modified: 1624127543833
@@ -143,7 +230,7 @@ resources:
     _type: request
   - _id: req_7f4691c758334e15930ff1fa55a6ee6e
     parentId: fld_5716aab745fd4291a90c58925f25e680
-    modified: 1623981435358
+    modified: 1624208543113
     created: 1623971685883
     url: "{{ _.baseUrl }}/doctors"
     name: create
@@ -151,10 +238,12 @@ resources:
     method: POST
     body:
       mimeType: application/json
-      text: |-
+      text: |
         {
         	"name": "John Doe",
-        	"crm": "000000"
+        	"crm": "000000",
+        	"phone": "99 98888-7777",
+        	"user_id": "d3aef929-9c9d-4651-8e2a-d1630c49370a"
         }
     parameters: []
     headers:
@@ -183,6 +272,29 @@ resources:
     environmentPropertyOrder: null
     metaSortKey: -1623800820281
     _type: request_group
+  - _id: req_a62bd421050d44b292e4352c21b4e952
+    parentId: fld_5716aab745fd4291a90c58925f25e680
+    modified: 1624208187782
+    created: 1624208183003
+    url: "{{ _.baseUrl }}/doctors"
+    name: List All Doctos
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication:
+      type: bearer
+      token: "{{ _.token }}"
+    metaSortKey: -1623968800376.5
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
   - _id: req_7f2e7f31411e46828f5625920e683bda
     parentId: fld_97b2c5b8725d4cf3911129759a2912bc
     modified: 1623880519822
@@ -360,12 +472,12 @@ resources:
     _type: api_spec
   - _id: env_f5c5d14e6fb641bda8995c1398c8a567
     parentId: env_a2007f4491c345f69d482f104fed4bb521cd29eb
-    modified: 1624192203789
+    modified: 1624208463499
     created: 1623800753257
     name: Dev
     data:
       baseUrl: http://localhost:3333
-      token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MjQxOTIxOTAsImV4cCI6MTYyNDIwNjU5MCwic3ViIjoiY2IyNWE5YjAtZTVjMi00N2U2LWE0NzUtZjZlZWE2Mjk0Y2UwIn0.m9DgdeBIV969W5frxN5zT1alGeLI9VH4V3SqA0EundA
+      token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MjQyMDgxOTUsImV4cCI6MTYyNDIyMjU5NSwic3ViIjoiZDNhZWY5MjktOWM5ZC00NjUxLThlMmEtZDE2MzBjNDkzNzBhIn0.OIxH5BEQmeirPgar5dh4hkCuViIb45q3S9vhi2--9Y0
     dataPropertyOrder:
       "&":
         - baseUrl
