@@ -5,11 +5,12 @@ import { ShowDoctorUseCase } from './ShowDoctorUserCase';
 
 export class ShowDoctorController {
   async handle(request: Request, response: Response): Promise<Response> {
-    const showoDoctor = container.resolve(ShowDoctorUseCase);
-    const { id } = request.params;
+    const { id: doctor_id } = request.params;
 
-    const doctor = await showoDoctor.execute(id);
+    const showDoCtorUseCase = container.resolve(ShowDoctorUseCase);
 
-    return response.status(200).json(doctor);
+    const doctor = await showDoCtorUseCase.execute({ doctor_id });
+
+    return response.json(doctor);
   }
 }
