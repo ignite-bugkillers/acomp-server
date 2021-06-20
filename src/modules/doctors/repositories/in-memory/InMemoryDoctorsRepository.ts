@@ -22,6 +22,8 @@ export class InMemoryDoctorsRepository implements IDoctorRepository {
       name,
       phone,
       user_id,
+      created_at: new Date(),
+      updated_at: new Date(),
     });
 
     this.doctors.push(doctor);
