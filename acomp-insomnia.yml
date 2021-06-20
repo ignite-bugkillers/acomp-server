@@ -1,6 +1,6 @@
 _type: export
 __export_format: 4
-__export_date: 2021-06-20T17:26:46.062Z
+__export_date: 2021-06-20T18:05:42.880Z
 __export_source: insomnia.desktop.app:v2021.2.2
 resources:
   - _id: req_2102087ee53342fd94ae7a677556bfd3
@@ -55,7 +55,7 @@ resources:
     _type: workspace
   - _id: req_90296a71788d435984fbbbc53ff1d612
     parentId: fld_aae2369dacf14c6d9c289dd8e05175d8
-    modified: 1624209282745
+    modified: 1624212048016
     created: 1624208569644
     url: "{{ _.baseUrl }}/medical-care"
     name: Create Medical Care
@@ -98,6 +98,33 @@ resources:
     environmentPropertyOrder: null
     metaSortKey: -1624208135880
     _type: request_group
+  - _id: req_2f8e8b2309584a3bb3afae1ecc64fed1
+    parentId: fld_aae2369dacf14c6d9c289dd8e05175d8
+    modified: 1624212050648
+    created: 1624212019958
+    url: "{{ _.baseUrl }}/medical-care"
+    name: List All Medical Care From Patient
+    description: ""
+    method: GET
+    body: {}
+    parameters:
+      - name: patient_id
+        value: 91e52c02-7b43-43f3-a1b7-e60cff49de6b
+        description: ""
+        id: pair_b1f62b2ccb234e01808423de95e54e4e
+    headers: []
+    authentication:
+      type: bearer
+      token: "{{ _.token }}"
+    metaSortKey: -1624090127763.5
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
   - _id: req_39cca611a02941668af50cb191183666
     parentId: fld_8eacd5dee2424a2cae23663bd1a7df61
     modified: 1624127520768
