@@ -11,6 +11,10 @@ export class TypeormUsersRepository implements IUsersRepository {
     this.repository = getRepository(User);
   }
 
+  public async save(user: User): Promise<User> {
+    return this.repository.save(user);
+  }
+
   public async create({
     name,
     email,
