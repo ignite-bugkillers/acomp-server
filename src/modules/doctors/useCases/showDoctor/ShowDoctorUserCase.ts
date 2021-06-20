@@ -1,6 +1,9 @@
 import { injectable, inject } from 'tsyringe';
 
+import { Doctor } from '../../entities/Doctor';
 import { IDoctorsRepository } from '../../repositories/IDoctorsRepository';
+import { IShowDoctorDTO } from './IShowDoctorDTO';
+import { ShowDoctorError } from './ShowDoctorError';
 
 @injectable()
 export class ShowDoctorUseCase {
@@ -9,8 +12,12 @@ export class ShowDoctorUseCase {
     private doctorRepository: IDoctorsRepository
   ) {}
 
-  public async execute(id: string) {
-    const doctor = await this.doctorRepository.findByID(id);
+  public async execute({ doctor_id }: IShowDoctorDTO): Promise<Doctor> {
+    const doctor = await this.doctorRepository.findByID(doctor_id);
+
+    if (!doctor) {
+      throw new ShowDoctorError();
+    }
 
     return doctor;
   }
