@@ -1,11 +1,11 @@
 _type: export
 __export_format: 4
-__export_date: 2021-06-20T18:05:42.880Z
+__export_date: 2021-06-20T18:18:50.783Z
 __export_source: insomnia.desktop.app:v2021.2.2
 resources:
   - _id: req_2102087ee53342fd94ae7a677556bfd3
     parentId: fld_3f107f52ec51457a8202631534eff6bd
-    modified: 1624208753950
+    modified: 1624212987079
     created: 1624208699936
     url: "{{ _.baseUrl }}/procedures"
     name: Create Procedure
@@ -15,7 +15,7 @@ resources:
       mimeType: application/json
       text: |-
         {
-        	"type": "consulta",
+        	"type": "retorno",
         	"description": "Qui voluptatem et amet autem qui est sunt fugiat."
         }
     parameters: []
@@ -53,6 +53,84 @@ resources:
     description: ""
     scope: collection
     _type: workspace
+  - _id: req_6214bbf812e4480b872376dc7f931b66
+    parentId: fld_3f107f52ec51457a8202631534eff6bd
+    modified: 1624212963857
+    created: 1624212949088
+    url: "{{ _.baseUrl }}/procedures/15ee263a-d98d-4027-b687-f3cb308c08ea"
+    name: Update Procedure
+    description: ""
+    method: PUT
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"type": "consulta",
+        	"description": "Qui voluptatem et amet autem qui est sunt fugiat."
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_f0ee815e98cb4c1daa6b4925e1544bbd
+    authentication:
+      type: bearer
+      token: "{{ _.token }}"
+    metaSortKey: -1624208667363
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_530b00e6599a4d1cb08983fa6ed2a8bd
+    parentId: fld_3f107f52ec51457a8202631534eff6bd
+    modified: 1624212921629
+    created: 1624212902852
+    url: "{{ _.baseUrl }}/procedures/15ee263a-d98d-4027-b687-f3cb308c08ea"
+    name: Show Procedure
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication:
+      type: bearer
+      token: "{{ _.token }}"
+    metaSortKey: -1624208634790
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_ed9ed3e34ea343deb56e345af0bec4f8
+    parentId: fld_3f107f52ec51457a8202631534eff6bd
+    modified: 1624212938701
+    created: 1624212931086
+    url: "{{ _.baseUrl }}/procedures"
+    name: List Procedure
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication:
+      type: bearer
+      token: "{{ _.token }}"
+    metaSortKey: -1624208602217
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
   - _id: req_90296a71788d435984fbbbc53ff1d612
     parentId: fld_aae2369dacf14c6d9c289dd8e05175d8
     modified: 1624212048016
@@ -257,10 +335,10 @@ resources:
     _type: request
   - _id: req_7f4691c758334e15930ff1fa55a6ee6e
     parentId: fld_5716aab745fd4291a90c58925f25e680
-    modified: 1624208543113
+    modified: 1624212867900
     created: 1623971685883
     url: "{{ _.baseUrl }}/doctors"
-    name: create
+    name: Create Doctor
     description: ""
     method: POST
     body:
@@ -299,12 +377,46 @@ resources:
     environmentPropertyOrder: null
     metaSortKey: -1623800820281
     _type: request_group
+  - _id: req_4a246fdf24994ecba282529731b90718
+    parentId: fld_5716aab745fd4291a90c58925f25e680
+    modified: 1624212790477
+    created: 1624212764450
+    url: "{{ _.baseUrl }}/doctors/5d9f4cc5-f5f5-4557-8f08-5e1e0ab00614"
+    name: Update Doctor
+    description: ""
+    method: PUT
+    body:
+      mimeType: application/json
+      text: |
+        {
+        	"name": "John Doe",
+        	"crm": "000000",
+        	"phone": "99 98888-7777",
+        	"user_id": "d3aef929-9c9d-4651-8e2a-d1630c49370a"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_cb1a5595614a4c9fb4c410a4fb86306c
+    authentication:
+      type: bearer
+      token: "{{ _.token }}"
+    metaSortKey: -1623970243129.75
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
   - _id: req_a62bd421050d44b292e4352c21b4e952
     parentId: fld_5716aab745fd4291a90c58925f25e680
-    modified: 1624208187782
+    modified: 1624212822426
     created: 1624208183003
     url: "{{ _.baseUrl }}/doctors"
-    name: List All Doctos
+    name: List All Doctors
     description: ""
     method: GET
     body: {}
@@ -314,6 +426,127 @@ resources:
       type: bearer
       token: "{{ _.token }}"
     metaSortKey: -1623968800376.5
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_b27c702e110941e4a7dc103430eb5d29
+    parentId: fld_5716aab745fd4291a90c58925f25e680
+    modified: 1624212838129
+    created: 1624212816071
+    url: "{{ _.baseUrl }}/doctors/5d9f4cc5-f5f5-4557-8f08-5e1e0ab00614"
+    name: Show Doctors
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication:
+      type: bearer
+      token: "{{ _.token }}"
+    metaSortKey: -1623967357623.25
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_903dc9d336fd453e9fd6a78ab91e6da3
+    parentId: fld_a8af95774dca4ad684387aa73056d1c5
+    modified: 1624213059951
+    created: 1624061127372
+    url: "{{ _.baseUrl }}/profile/me"
+    name: Profile
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication:
+      type: bearer
+      token: "{{ _.token }}"
+      disabled: false
+    metaSortKey: -1623800831952
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_a8af95774dca4ad684387aa73056d1c5
+    parentId: wrk_ddcb46f33f614caba0c87aa3bbe3bd37
+    modified: 1624213072717
+    created: 1624213050808
+    name: Users
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1623800820256
+    _type: request_group
+  - _id: req_59635852ba704b69b6df0f1d09e4f6c6
+    parentId: fld_a8af95774dca4ad684387aa73056d1c5
+    modified: 1624213061883
+    created: 1624192173414
+    url: "{{ _.baseUrl }}/profile"
+    name: Update Profile
+    description: ""
+    method: PUT
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"name": "Xuza da Silva",
+        	"email": "john@johndoe.com"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_37d66e2dd72342b9bcfe12ef21f9906d
+    authentication:
+      type: bearer
+      token: "{{ _.token }}"
+      disabled: false
+    metaSortKey: -1623800831927
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_70284b8c5e0e40bba7ca4609d9eec1e6
+    parentId: fld_a8af95774dca4ad684387aa73056d1c5
+    modified: 1624213057932
+    created: 1623800831902
+    url: "{{ _.baseUrl }}/users"
+    name: Create User
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"name": "John Doe",
+        	"email": "john@johndoe.com",
+        	"password": "123456"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_1f30a143338b438cb0f07294279090cb
+    authentication: {}
+    metaSortKey: -1623800831902
     isPrivate: false
     settingStoreCookies: true
     settingSendCookies: true
@@ -354,102 +587,14 @@ resources:
     _type: request
   - _id: fld_97b2c5b8725d4cf3911129759a2912bc
     parentId: wrk_ddcb46f33f614caba0c87aa3bbe3bd37
-    modified: 1623800820231
+    modified: 1624213094749
     created: 1623800820231
-    name: Accounts
+    name: Session
     description: ""
     environment: {}
     environmentPropertyOrder: null
     metaSortKey: -1623800820231
     _type: request_group
-  - _id: req_70284b8c5e0e40bba7ca4609d9eec1e6
-    parentId: fld_97b2c5b8725d4cf3911129759a2912bc
-    modified: 1623855414439
-    created: 1623800831902
-    url: "{{ _.baseUrl }}/users"
-    name: Create User
-    description: ""
-    method: POST
-    body:
-      mimeType: application/json
-      text: |-
-        {
-        	"name": "John Doe",
-        	"email": "john@johndoe.com",
-        	"password": "123456"
-        }
-    parameters: []
-    headers:
-      - name: Content-Type
-        value: application/json
-        id: pair_1f30a143338b438cb0f07294279090cb
-    authentication: {}
-    metaSortKey: -1623800831902
-    isPrivate: false
-    settingStoreCookies: true
-    settingSendCookies: true
-    settingDisableRenderRequestBody: false
-    settingEncodeUrl: true
-    settingRebuildPath: true
-    settingFollowRedirects: global
-    _type: request
-  - _id: req_903dc9d336fd453e9fd6a78ab91e6da3
-    parentId: fld_97b2c5b8725d4cf3911129759a2912bc
-    modified: 1624125452690
-    created: 1624061127372
-    url: "{{ _.baseUrl }}/profile/me"
-    name: Profile
-    description: ""
-    method: GET
-    body: {}
-    parameters: []
-    headers: []
-    authentication:
-      type: bearer
-      token: "{{ _.token }}"
-      disabled: false
-    metaSortKey: -1623800819660
-    isPrivate: false
-    settingStoreCookies: true
-    settingSendCookies: true
-    settingDisableRenderRequestBody: false
-    settingEncodeUrl: true
-    settingRebuildPath: true
-    settingFollowRedirects: global
-    _type: request
-  - _id: req_59635852ba704b69b6df0f1d09e4f6c6
-    parentId: fld_97b2c5b8725d4cf3911129759a2912bc
-    modified: 1624192304011
-    created: 1624192173414
-    url: "{{ _.baseUrl }}/profile"
-    name: Update Profile
-    description: ""
-    method: PUT
-    body:
-      mimeType: application/json
-      text: |-
-        {
-        	"name": "Xuza da Silva",
-        	"email": "john@johndoe.com"
-        }
-    parameters: []
-    headers:
-      - name: Content-Type
-        value: application/json
-        id: pair_37d66e2dd72342b9bcfe12ef21f9906d
-    authentication:
-      type: bearer
-      token: "{{ _.token }}"
-      disabled: false
-    metaSortKey: -1623800813539
-    isPrivate: false
-    settingStoreCookies: true
-    settingSendCookies: true
-    settingDisableRenderRequestBody: false
-    settingEncodeUrl: true
-    settingRebuildPath: true
-    settingFollowRedirects: global
-    _type: request
   - _id: req_4ddc9146781049b4ad05b8464101c917
     parentId: wrk_ddcb46f33f614caba0c87aa3bbe3bd37
     modified: 1623800810742
