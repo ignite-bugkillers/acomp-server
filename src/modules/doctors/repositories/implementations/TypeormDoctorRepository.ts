@@ -11,7 +11,7 @@ export class TypeormDoctorRepository implements IDoctorRepository {
     this.repository = getRepository(Doctor);
   }
 
-  public async findAll(): Promise<Doctor[] | undefined> {
+  public async findAll(): Promise<Doctor[]> {
     return this.repository.find();
   }
 

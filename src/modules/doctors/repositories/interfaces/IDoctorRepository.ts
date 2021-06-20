@@ -6,5 +6,5 @@ export interface IDoctorRepository {
   save(doctor: Doctor): Promise<Doctor>;
   findByID(id: string): Promise<Doctor | undefined>;
   findByCRM(crm: string): Promise<Doctor | undefined>;
-  findAll(): Promise<Doctor[] | undefined>;
+  findAll(): Promise<Doctor[]>;
 }
