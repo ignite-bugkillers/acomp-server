@@ -3,4 +3,5 @@ import { ICreateMedicalCareDTO } from '../useCases/createMedicalCare/ICreateMedi
 
 export interface IMedicalCareRepository {
   create(data: ICreateMedicalCareDTO): Promise<MedicalCare>;
+  findAllFromPatient(patient_id: string): Promise<MedicalCare[]>;
 }
