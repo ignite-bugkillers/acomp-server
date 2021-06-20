@@ -10,8 +10,7 @@ export class ListAllDoctorsUserCase {
     private doctorRepository: IDoctorsRepository
   ) {}
 
-  public async execute(): Promise<Doctor[] | undefined> {
-    const doctors = await this.doctorRepository.findAll();
-    return doctors;
+  public async execute(): Promise<Doctor[]> {
+    return this.doctorRepository.findAll();
   }
 }
