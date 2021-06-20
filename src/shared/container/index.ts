@@ -4,8 +4,8 @@ import './providers';
 
 import { TypeormUsersRepository } from '../../modules/accounts/repositories/implementations/TypeormUsersRepositor';
 import { IUsersRepository } from '../../modules/accounts/repositories/IUsersRepository';
-import { TypeormDoctorRepository } from '../../modules/doctors/repositories/implementations/TypeormDoctorRepository';
-import { IDoctorRepository } from '../../modules/doctors/repositories/interfaces/IDoctorRepository';
+import { IDoctorsRepository } from '../../modules/doctors/repositories/IDoctorsRepository';
+import { TypeormDoctorsRepository } from '../../modules/doctors/repositories/implementations/TypeormDoctorsRepository';
 import { IMedicalCareRepository } from '../../modules/medicalCare/repositories/IMedicalCateRepository';
 import { TypeormMedicalCareRepository } from '../../modules/medicalCare/repositories/implementations/TypeormMedicalCareRepository';
 import { TypeormPatientsRepository } from '../../modules/patients/repositories/implementations/TypeormPatientsRepository';
@@ -18,9 +18,9 @@ container.registerSingleton<IUsersRepository>(
   TypeormUsersRepository
 );
 
-container.registerSingleton<IDoctorRepository>(
-  'TypeormDoctorRepository',
-  TypeormDoctorRepository
+container.registerSingleton<IDoctorsRepository>(
+  'TypeormDoctorsRepository',
+  TypeormDoctorsRepository
 );
 
 container.registerSingleton<IPatientsRepository>(

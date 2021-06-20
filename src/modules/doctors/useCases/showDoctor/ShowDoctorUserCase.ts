@@ -1,12 +1,12 @@
 import { injectable, inject } from 'tsyringe';
 
-import { IDoctorRepository } from '../../repositories/interfaces/IDoctorRepository';
+import { IDoctorsRepository } from '../../repositories/IDoctorsRepository';
 
 @injectable()
 export class ShowDoctorUseCase {
   constructor(
-    @inject('TypeormDoctorRepository')
-    private doctorRepository: IDoctorRepository
+    @inject('TypeormDoctorsRepository')
+    private doctorRepository: IDoctorsRepository
   ) {}
 
   public async execute(id: string) {

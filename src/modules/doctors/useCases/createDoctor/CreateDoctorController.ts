@@ -2,7 +2,7 @@ import { Request, Response } from 'express';
 import { container } from 'tsyringe';
 
 import { DoctorMap } from '../../mapper/DoctorMap';
-import { CreateDoctorUserCase } from './CreateUserUseCase';
+import { CreateDoctorUserCase } from './CreateDoctorUseCase';
 import { ICreateDoctorDTO } from './ICreateDoctorDTO';
 
 export class CreateDoctorController {

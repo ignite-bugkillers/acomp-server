@@ -1,6 +1,6 @@
 import { inject, injectable } from 'tsyringe';
 
-import { IDoctorRepository } from '../../../doctors/repositories/interfaces/IDoctorRepository';
+import { IDoctorsRepository } from '../../../doctors/repositories/IDoctorsRepository';
 import { IPatientsRepository } from '../../../patients/repositories/IPatientsRepository';
 import { IProcedureRepository } from '../../../procedures/repositories/interfaces/IProcedureRepository';
 import { MedicalCare } from '../../entities/MedicalCare';
@@ -14,8 +14,8 @@ export class CreateMedicalCareUseCase {
     @inject('TypeormMedicalCareRepository')
     private medicalCareRepository: IMedicalCareRepository,
 
-    @inject('TypeormDoctorRepository')
-    private doctorsRepository: IDoctorRepository,
+    @inject('TypeormDoctorsRepository')
+    private doctorsRepository: IDoctorsRepository,
 
     @inject('TypeormPatientsRepository')
     private patientsRepository: IPatientsRepository,

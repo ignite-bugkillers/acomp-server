@@ -1,8 +1,8 @@
 import { Doctor } from '../../entities/Doctor';
 import { ICreateDoctorDTO } from '../../useCases/createDoctor/ICreateDoctorDTO';
-import { IDoctorRepository } from '../interfaces/IDoctorRepository';
+import { IDoctorsRepository } from '../IDoctorsRepository';
 
-export class InMemoryDoctorsRepository implements IDoctorRepository {
+export class InMemoryDoctorsRepository implements IDoctorsRepository {
   private doctors: Doctor[];
 
   constructor() {
