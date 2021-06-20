@@ -15,22 +15,28 @@ interface IRequest {
 export class UpdateDoctorUserCase {
   constructor(
     @inject('TypeormDoctorsRepository')
-    private doctorRepository: IDoctorsRepository
+    private doctorsRepository: IDoctorsRepository
   ) {}
 
   public async execute({ id, name, phone, crm }: IRequest): Promise<Doctor> {
-    const doctorExists = await this.doctorRepository.findByID(id);
+    const doctor = await this.doctorsRepository.findByID(id);
 
-    if (!doctorExists) {
-      throw new UpdateDoctorError('Doctor does not exists');
+    if (!doctor) {
+      throw new UpdateDoctorError.DoctorNotExists();
     }
 
-    doctorExists.phone = phone;
-    doctorExists.crm = crm;
-    doctorExists.name = name;
+    const findDoctorByCrm = await this.doctorsRepository.findByCRM(crm);
 
-    const doctor = await this.doctorRepository.save(doctorExists);
+    if (findDoctorByCrm && findDoctorByCrm.id !== id) {
+      throw new UpdateDoctorError.CrmInUse();
+    }
 
-    return doctor;
+    Object.assign(doctor, {
+      name,
+      phone,
+      crm,
+    });
+
+    return this.doctorsRepository.save(doctor);
   }
 }
