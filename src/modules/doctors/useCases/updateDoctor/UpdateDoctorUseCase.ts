@@ -1,7 +1,7 @@
 import { injectable, inject } from 'tsyringe';
 
 import { Doctor } from '../../entities/Doctor';
-import { IDoctorRepository } from '../../repositories/interfaces/IDoctorRepository';
+import { IDoctorsRepository } from '../../repositories/IDoctorsRepository';
 import { UpdateDoctorError } from './UpdateDoctorError';
 
 interface IRequest {
@@ -14,8 +14,8 @@ interface IRequest {
 @injectable()
 export class UpdateDoctorUserCase {
   constructor(
-    @inject('TypeormDoctorRepository')
-    private doctorRepository: IDoctorRepository
+    @inject('TypeormDoctorsRepository')
+    private doctorRepository: IDoctorsRepository
   ) {}
 
   public async execute({ id, name, phone, crm }: IRequest): Promise<Doctor> {

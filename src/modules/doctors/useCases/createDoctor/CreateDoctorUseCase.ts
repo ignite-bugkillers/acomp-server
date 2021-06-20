@@ -2,15 +2,15 @@ import { injectable, inject } from 'tsyringe';
 
 import { IUsersRepository } from '../../../accounts/repositories/IUsersRepository';
 import { Doctor } from '../../entities/Doctor';
-import { IDoctorRepository } from '../../repositories/interfaces/IDoctorRepository';
+import { IDoctorsRepository } from '../../repositories/IDoctorsRepository';
 import { CreateDoctorError } from './CreateDoctorError';
 import { ICreateDoctorDTO } from './ICreateDoctorDTO';
 
 @injectable()
 export class CreateDoctorUserCase {
   constructor(
-    @inject('TypeormDoctorRepository')
-    private doctorRepository: IDoctorRepository,
+    @inject('TypeormDoctorsRepository')
+    private doctorRepository: IDoctorsRepository,
 
     @inject('TypeormUsersRepository')
     private userRepository: IUsersRepository

@@ -1,13 +1,13 @@
 import { injectable, inject } from 'tsyringe';
 
 import { Doctor } from '../../entities/Doctor';
-import { IDoctorRepository } from '../../repositories/interfaces/IDoctorRepository';
+import { IDoctorsRepository } from '../../repositories/IDoctorsRepository';
 
 @injectable()
 export class ListAllDoctorsUserCase {
   constructor(
-    @inject('TypeormDoctorRepository')
-    private doctorRepository: IDoctorRepository
+    @inject('TypeormDoctorsRepository')
+    private doctorRepository: IDoctorsRepository
   ) {}
 
   public async execute(): Promise<Doctor[] | undefined> {

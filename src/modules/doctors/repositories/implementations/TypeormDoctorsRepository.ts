@@ -2,9 +2,9 @@ import { getRepository, Repository } from 'typeorm';
 
 import { Doctor } from '../../entities/Doctor';
 import { ICreateDoctorDTO } from '../../useCases/createDoctor/ICreateDoctorDTO';
-import { IDoctorRepository } from '../interfaces/IDoctorRepository';
+import { IDoctorsRepository } from '../IDoctorsRepository';
 
-export class TypeormDoctorRepository implements IDoctorRepository {
+export class TypeormDoctorsRepository implements IDoctorsRepository {
   private repository: Repository<Doctor>;
 
   constructor() {
