@@ -23,8 +23,11 @@ export class TypeormProcedureRepository implements IProcedureRepository {
     return this.repository.findOne({ type });
   }
 
-  public async create({ type }: ICreateProcedureDTO): Promise<Procedure> {
-    const procedure = this.repository.create({ type });
+  public async create({
+    type,
+    description,
+  }: ICreateProcedureDTO): Promise<Procedure> {
+    const procedure = this.repository.create({ type, description });
 
     return this.repository.save(procedure);
   }

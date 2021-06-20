@@ -7,6 +7,7 @@ import { UpdateProcedureError } from './UpdateProcedureError';
 interface IRequest {
   id: string;
   type: string;
+  description: string;
 }
 
 @injectable()
@@ -16,7 +17,11 @@ export class UpdateProcedureUserCase {
     private produceRepository: IProcedureRepository
   ) {}
 
-  public async execute({ id, type }: IRequest): Promise<Procedure> {
+  public async execute({
+    id,
+    type,
+    description,
+  }: IRequest): Promise<Procedure> {
     const pocedureExists = await this.produceRepository.findByID(id);
 
     if (!pocedureExists) {
@@ -24,6 +29,7 @@ export class UpdateProcedureUserCase {
     }
 
     pocedureExists.type = type;
+    pocedureExists.description = description;
 
     return this.produceRepository.save(pocedureExists);
   }

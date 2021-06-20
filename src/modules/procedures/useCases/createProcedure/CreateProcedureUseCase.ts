@@ -12,7 +12,10 @@ export class CreateProcedureUseCase {
     private procedureRepository: IProcedureRepository
   ) {}
 
-  public async execute({ type }: ICreateProcedureDTO): Promise<Procedure> {
+  public async execute({
+    type,
+    description,
+  }: ICreateProcedureDTO): Promise<Procedure> {
     const procedureAlreadyExists = await this.procedureRepository.findByType(
       type
     );
@@ -21,6 +24,6 @@ export class CreateProcedureUseCase {
       throw new CreateProcedureError();
     }
 
-    return this.procedureRepository.create({ type });
+    return this.procedureRepository.create({ type, description });
   }
 }

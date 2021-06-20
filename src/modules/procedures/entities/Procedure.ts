@@ -15,6 +15,9 @@ export class Procedure {
   @Column()
   public type: string;
 
+  @Column()
+  public description: string;
+
   @CreateDateColumn()
   public created_at: string;
 

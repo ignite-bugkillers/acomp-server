@@ -7,11 +7,11 @@ import { UpdateProcedureUserCase } from './UpdateProcedureUseCase';
 export class UpdateProcedureController {
   async handle(request: Request, response: Response) {
     const { id } = request.params;
-    const { type } = request.body;
+    const { type, description } = request.body;
 
     const updateProcedure = container.resolve(UpdateProcedureUserCase);
 
-    const procedure = await updateProcedure.execute({ id, type });
+    const procedure = await updateProcedure.execute({ id, type, description });
 
     return response.status(201).json(ProcedureMap.toDTO(procedure));
   }
