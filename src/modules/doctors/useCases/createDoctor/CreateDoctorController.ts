@@ -7,14 +7,14 @@ import { ICreateDoctorDTO } from './ICreateDoctorDTO';
 
 export class CreateDoctorController {
   async handle(request: Request, response: Response): Promise<Response> {
-    const { phone, crm }: ICreateDoctorDTO = request.body;
+    const { phone, crm, user_id }: ICreateDoctorDTO = request.body;
 
     const createDoctor = container.resolve(CreateDoctorUserCase);
 
     const doctor = await createDoctor.execute({
       phone,
       crm,
-      user_id: request.user.id,
+      user_id,
     });
 
     return response.status(201).json(DoctorMap.toDTO(doctor));
